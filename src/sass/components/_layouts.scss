@@ -1,0 +1,9 @@
+.windowContainer {
+  width: 95%;
+  margin: 10px auto;
+  background-color: $bg-color;
+  &__window{
+    border: 1px solid $stroke-color;
+    border-radius: 8px;
+  }
+}
