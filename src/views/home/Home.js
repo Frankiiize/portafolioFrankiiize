@@ -1,13 +1,22 @@
 import React from "react";
-import { Header } from "../../components/Header";
+
 
 const HomePage = () => {
-  return(
-    <>
-    <Header />
-    <h1>hola</h1>
-    </>
+  const textToCode = () => {
 
+  }
+  return(
+    <main >
+      <section className="hero">
+        <h3 className="text-color-primary">Hi all. I am</h3>
+        <h1>Francisco Jimenez</h1>
+        <h3> &gt; Front-end developer</h3>
+      </section>
+
+      <section>
+        <h3>// find my profile on Github:</h3>
+      </section>
+    </main>
   );
 };
 

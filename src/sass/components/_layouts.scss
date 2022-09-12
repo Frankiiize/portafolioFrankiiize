@@ -1,9 +1,9 @@
 .windowContainer {
   width: 95%;
+  min-height: calc(100vh - 20px);
   margin: 10px auto;
-  background-color: $bg-color;
-  &__window{
-    border: 1px solid $stroke-color;
-    border-radius: 8px;
-  }
+  background-color: $color-primary-soft;
+  border: 1px solid $stroke-color;
+  border-radius: 8px;
+  position: relative;
 }

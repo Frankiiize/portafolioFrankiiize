@@ -1,13 +1,14 @@
 import React from "react";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 
 const DefaultLayout = ({children}) => {
   return ( 
 
     <div className="windowContainer">
-      <div className="windowContainer__window">
-
-        {children}
-      </div>
+      <Header />
+      {children}
+      <Footer />
     </div>
 
   )

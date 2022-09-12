@@ -1,5 +1,6 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import AboutmePage from "../views/aboutme/Aboutme";
 
 /* const Login = React.lazy(() => import('../views/login/Login'));
 const Dashboard = React.lazy(() => import('../views/dashboard/Dashboard'));
@@ -20,6 +21,7 @@ let rutasUsuario = [
 ]; */
 let routes = [
   {path:"/", element: <HomePage />},
+  {path:"/aboutme", element: <AboutmePage />},
   /* {path:"/login", element: <Login />}, */
 /*   {
     path:"/", 
