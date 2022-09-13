@@ -1,13 +1,416 @@
-body {
+/* COlORS */
+/* COlORS */
+/* FONTS */
+/* FONTS */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  width: 100%;
+  /* min-height: calc(100vh - 65px); */
+  overscroll-behavior: none;
+  /* padding-bottom: 65px; */
+  overflow-x: hidden;
+  background-color: #010C15;
+  font-family: "Fira Code", monospace;
+}
+
+/* A elements that don't have a class get default styles */
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+.text-color-primary {
+  color: #01080E;
+}
+
+.text-color-primary-soft {
+  color: #011627;
+}
+
+.text-color-primary-ligth {
+  color: #011221;
+}
+
+.text-color-secondary {
+  color: #607B96;
+}
+
+.text-color-secondary-green {
+  color: #3C9D93;
+}
+
+.text-color-secondary-bluePurple {
+  color: #4D5BCE;
+}
+
+.text-color-secondary-white {
+  color: #FFFFFF;
+}
+
+.text-color-accent {
+  color: #FEA55F;
+}
+
+.text-color-accent-green {
+  color: #43D9AD;
+}
+
+.text-color-accent-red {
+  color: #E99287;
+}
+
+.text-color-accent-purple {
+  color: #C98BDF;
+}
+
+.text-stroke-color {
+  color: #1E2D3D;
+}
+
+.text-bg-color-secondary {
+  color: #010C15;
+}
+
+.windowContainer {
+  width: 95%;
+  height: calc(100vh - 20px);
+  margin: 10px auto;
+  background-color: #011627;
+  border: 1px solid #1E2D3D;
+  border-radius: 8px;
+  position: relative;
+}
+
+.headerContainer {
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 10;
+}
+.headerContainer__heading {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1E2D3D;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.headerContainer__heading-deskMenu {
+  display: none;
+}
+.headerContainer__heading ul li a, .headerContainer__heading ul li a:visited {
+  color: #607B96;
+  font-size: 1.6rem;
+}
+.headerContainer__heading button.close {
+  position: relative;
+  transition: 200ms;
+}
+.headerContainer__heading button.close div:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg);
+  transition: 200ms;
+}
+.headerContainer__heading button.close div:nth-child(2) {
+  opacity: 0;
+  width: 0%;
+  transition: 300ms;
+}
+.headerContainer__heading button.close div:nth-child(3) {
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  transition: 200ms;
+}
+.headerContainer__heading button {
+  width: 24px;
+  height: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+}
+.headerContainer__heading button div {
+  position: absolute;
+  width: 100%;
+  transform: rotate(0);
+  transition: 200ms;
+  height: 3px;
+  background-color: #607B96;
+}
+.headerContainer__heading button div:nth-child(1) {
+  top: 0;
+}
+.headerContainer__heading button div:nth-child(2) {
+  top: 50%;
+}
+.headerContainer__heading button div:nth-child(3) {
+  top: 100%;
+}
+.headerContainer__list {
+  position: relative;
+  width: 100%;
+}
+.headerContainer__list ul {
+  height: calc(100vh - 130px);
+  width: 100%;
+  background-color: #011627;
+  background-position: center;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.headerContainer__list ul li {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #1E2D3D;
+}
+.headerContainer__list ul li a, .headerContainer__list ul li a:visited {
+  font-size: 1.6rem;
+  color: #607B96;
+}
+.headerContainer__list ul li.current a {
+  color: #FFFFFF !important;
+}
+
+@media (min-width: 768px) {
+  .headerContainer {
+    display: flex;
+  }
+  .headerContainer__heading {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .headerContainer__heading-deskMenu {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 120px) 1fr;
+  }
+  .headerContainer__heading-deskMenu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #1E2D3D;
+    border-bottom: 3px solid transparent;
+  }
+  .headerContainer__heading-deskMenu li:nth-child(3) {
+    border-right: 1px solid #1E2D3D;
+  }
+  .headerContainer__heading-deskMenu li:last-child {
+    justify-self: flex-end;
+    min-width: 120px;
+  }
+  .headerContainer__heading-deskMenu li.current {
+    border-bottom: 3px solid #E99287;
+  }
+  .headerContainer__heading-deskMenu li.current a {
+    color: #FFFFFF !important;
+  }
+  .headerContainer__heading-logo {
+    min-width: 200px;
+  }
+  .headerContainer__heading button {
+    display: none;
+  }
+  .headerContainer__list {
+    display: none;
+  }
+}
+.codeContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.codeContainer p {
+  padding: 0 5px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.hero {
+  font-family: "Fira Code", monospace;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.hero__wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.hero__wrapper__titleContainer {
+  width: 90%;
+  margin: 0 auto;
+  z-index: 3;
+}
+.hero__wrapper__titleContainer__uptitle {
+  color: #E5E9F0;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+.hero__wrapper__titleContainer__name {
+  color: #E5E9F0;
+  font-size: 5rem;
+  font-weight: 400;
+}
+.hero__wrapper__titleContainer__subtitle {
+  color: #43D9AD;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.hero__wrapper__gitContainer {
+  width: 90%;
+  margin: 0 auto;
+  z-index: 3;
+}
+.hero__wrapper__gitContainer__coment {
+  color: #607B96;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.hero__backGround {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero__backGround-green {
+  position: absolute;
+  top: 15%;
+  right: 23%;
+  width: 450px;
+  height: 165px;
+  background-color: #43D9AD;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+  filter: blur(100px) brightness(0.8) opacity(0.8);
+  z-index: 2;
+}
+.hero__backGround-purple {
+  position: absolute;
+  left: 13%;
+  top: 31%;
+  width: 450px;
+  height: 165px;
+  background-color: #4D5BCE;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+  filter: blur(98px) brightness(0.9) opacity(0.8);
+  z-index: 1;
+}
+.hero__game {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero__backGround-purple {
+    left: 80%;
+    top: 60%;
+  }
+  .hero__game {
+    display: flex;
+  }
+}
+.footer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+.footer__socialMedia {
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid #1E2D3D;
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr);
+}
+.footer__socialMedia li {
+  display: flex;
+  color: #607B96;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #1E2D3D;
+}
+.footer__socialMedia li:first-child {
+  justify-self: flex-start;
+  padding-left: 10px;
+}
+
+.homeMain {
+  height: calc(100% - 106px);
+}
+
+/*# sourceMappingURL=index.css.map */

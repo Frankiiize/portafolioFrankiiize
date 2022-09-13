@@ -47,6 +47,7 @@ const Header = () => {
         }
       </ul>
       <button
+        className={!!showMenu ? 'close' : undefined}
         onClick={() => setShowMenu(!showMenu)}
         type="button"
         >

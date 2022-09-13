@@ -1,0 +1,10 @@
+.codeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  p{
+    padding: 0 5px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    word-break: break-word;
+  }
+}
