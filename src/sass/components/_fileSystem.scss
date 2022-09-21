@@ -1,0 +1,91 @@
+.fileSystem{
+  &__btnContainer{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid $stroke-color;
+    display: flex;
+    align-items: center;
+    button{
+      background-color: transparent;
+      border:none;
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto;
+      p{
+        order: 2;
+        margin-left: 10px;
+        color: $color-secondary-white ; 
+        font-family: $font-primary;
+        font-size: 1.6rem;
+      }
+      .tringleIcon{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+          
+          transition: 200ms;
+          transform: rotate(0deg);
+        }
+        
+      }
+    
+    }
+    button.close{
+      .tringleIcon{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 200ms;
+        svg{
+          transform: rotate(-90deg);
+          transform-origin: 50% 0%;
+          transition: 200ms;
+        }
+
+      }
+    }
+  }
+  &__filesContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__file{
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      &-chevron{ 
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        svg{
+          transform: rotate(0);
+          transition: 200ms;
+        }
+      }
+      .chevron-active{
+        transform: rotate(90deg);
+        transition: 200ms;
+        transform-origin: 41% 64%;
+      }
+      p{
+        color: $color-secondary;
+        margin: 0 10px;
+      }
+     
+    }
+
+
+  }
+}

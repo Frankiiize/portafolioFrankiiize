@@ -132,6 +132,15 @@ a {
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .ideLayout {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr;
+  }
+  .ideLayout__files, .ideLayout__code {
+    border-right: 1px solid #1E2D3D;
+  }
+}
 .headerContainer {
   width: 100%;
   position: relative;
@@ -409,7 +418,7 @@ a {
   padding-left: 10px;
 }
 
-.homeMain {
+.homeMain, .ideLayout {
   height: calc(100% - 106px);
 }
 
