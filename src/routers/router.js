@@ -1,11 +1,13 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import AboutmePage from "../views/aboutme/Aboutme";
 
 /* const Login = React.lazy(() => import('../views/login/Login'));
 const Dashboard = React.lazy(() => import('../views/dashboard/Dashboard'));
 const Protected = React.lazy(() => import('../routers/ProtectedRoute')); */
 const HomePage = React.lazy(() => import('../views/home/Home'));
+const AboutmePage = React.lazy(() => import('../views/aboutme/Aboutme'));
+const ProjectsPage = React.lazy(() => import('../views/projects/Projects'));
+
 
 // const localStorageValidation = (localStorage.length > 0) ? JSON.parse(localStorage.getItem("user")).user.role : null;
 
@@ -22,6 +24,7 @@ let rutasUsuario = [
 let routes = [
   {path:"/", element: <HomePage />},
   {path:"/aboutme", element: <AboutmePage />},
+  {path:"/projects", element: <ProjectsPage />},
   /* {path:"/login", element: <Login />}, */
 /*   {
     path:"/", 

@@ -18,9 +18,10 @@
 
   .ideLayout{
     display: grid;
-    grid-template-columns: 250px 1fr 1fr ;
+    grid-template-columns: 290px 1.5fr 1fr ;
     &__files, &__code{
       border-right: 1px solid $stroke-color;
+      max-width: 700px;
     }
   }
   

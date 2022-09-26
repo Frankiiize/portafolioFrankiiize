@@ -1,6 +1,5 @@
 const TextToCode = ({string}) => {
   const stringArr = string.split(' ')
-  console.log(stringArr)
   let obj = {}
   stringArr.map((item,index) =>{
     if(item === 'const' || item === 'let' || item === 'var'){
@@ -16,7 +15,6 @@ const TextToCode = ({string}) => {
       obj.string = item;
     }
   })
-  console.log(obj)
   return(
     <>
     {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -6,7 +6,7 @@ const navigation = [
   { name: 'Francisco Jimenez', href: '/register', current: false },
   { name: '_hello', href: '/', current: false },
   { name: '_about-me', href: '/aboutme', current: false },
-  { name: '_projects', href: '/#', current: false },
+  { name: '_projects', href: '/projects', current: false },
   { name: '_contact-me', href: '/#', current: false },
 ]
 
@@ -14,7 +14,10 @@ const navigation = [
 const Header = () => {
   const location = useLocation();
   const [ showMenu , setShowMenu ] = useState(false);
-  console.log(location.pathname  )
+
+  useEffect(() => {
+    setShowMenu(false)
+  },[location])
 
   return (
     <header className="headerContainer">
@@ -63,6 +66,7 @@ const Header = () => {
           {
             navigation.slice(1).map((item,index) => (
               <li
+              key={`link-${item.name}`}
               className={location.pathname === item.href ? 'current' : undefined} 
               >
                 <Link to={item.href}>{item.name}</Link>

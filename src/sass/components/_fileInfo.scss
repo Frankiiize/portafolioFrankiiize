@@ -1,0 +1,30 @@
+.fileInfo{
+  width: 95%;
+  margin: 20px auto;
+  &__title{
+    p{
+      color: $color-secondary;
+      font-size: 1.8rem;
+    }
+  }
+  &__lines{
+    margin-bottom: 5px;
+    &-number{
+      margin-right: 30px ;
+    }
+    &-code{
+      display: flex;
+    }
+    display: flex;
+    &-lastLine{
+      display: flex;
+    }
+  }
+  p,span{
+    color: $color-secondary;
+    font-size: 1.8rem;
+  }
+  span {
+    margin-right: 10px;
+  }
+}

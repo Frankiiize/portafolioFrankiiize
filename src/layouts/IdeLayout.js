@@ -5,7 +5,13 @@ const IdeLayout = (props) =>{
     <section className="ideLayout">
       <div className="ideLayout__files">
           {
-            props.files && props.files()
+            props.files && (
+              <>
+              {
+                 props.files()
+              }
+              </>
+            )
           }
       </div>
       <div className="ideLayout__code">
