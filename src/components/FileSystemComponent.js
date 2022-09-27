@@ -2,11 +2,10 @@ import React from "react";
 import FileIcon from "../assets/icons/FileIcon";
 
 
-const FileSystemComponent = ({file, index, handleOpenFile}) => {
-  console.log(file)
+const FileSystemComponent = ({file, index, handleOpenFile, id}) => {
   return(
     <button
-      onClick={ () => handleOpenFile(file)}
+      onClick={ () => handleOpenFile(file, id)}
     >
       <div className="icon">
         {

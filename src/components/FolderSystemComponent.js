@@ -2,28 +2,17 @@ import React, { useReducer } from "react";
 import TringleIcon from "../assets/icons/TringleIcon";
 import Chevron from "../assets/icons/Chevron";
 import { FileSystemComponent } from "./FileSystemComponent";
+import FolderIcon from "../assets/icons/FolderIcon";
 
 
-
-
-
-const FolderSystemComponent = ({state,dispatch, title = 'undefined' }) => {
-  const handleOpenFileSystem = () => {
-    dispatch({type: 'SHOW-FILE-SYSTEM', payload: !state.showFolders})
-  }
-  const handleOpenFolder = (folder) => {
-    dispatch({type: 'SHOW-FOLDER', payload: folder})
-  }
-  const handleOpenFile = (file) => {
-    dispatch({type: 'SHOW-FILES', payload: file})
-  }
+const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder, handleOpenFile,  title = 'undefined' }) => {
   return(
     <div className="folderSystem">
       
       <div className="folderSystem__btnContainer">
           <button
           className={!state.showFolders ? 'close': undefined}
-          onClick={handleOpenFileSystem} 
+          onClick={() => handleOpenFileSystem({id: id, showFolders: !state.showFolders})} 
           >
             <p>{title}</p>
             <div className="tringleIcon">
@@ -37,21 +26,26 @@ const FolderSystemComponent = ({state,dispatch, title = 'undefined' }) => {
           !!state.showFolders && (
             <>
             {
-              state.folders.map((folder, index) => (
-                <div key={`folder-${folder.name}-${index}`}>
+              state.folder.map((item, index) => (
+                <div key={`folder-${item.name}-${index}`}>
                   <button 
                   className="folderSystem__folderContainer__folderBtn"
-                  onClick={() => handleOpenFolder(folder)}
+                  onClick={() => handleOpenFolder(item, id)}
                   >
                     <div className="folderSystem__folderContainer__folderBtn-chevron">
-                      <Chevron className={folder.id === state.currentFolder?.id ? 'chevron-active' : undefined } width={16} heigth={16}/>
+                      <Chevron className={item.id === state.currentFolder?.id ? 'chevron-active' : undefined } width={16} heigth={16}/>
                     </div>
-                    {folder.icon}
-                    <p>{folder.name}</p>
+                    {
+                      item.icon 
+                      ? (item.icon)
+                      : <FolderIcon fill={'#E99287'} />
+                    }
+                    <p>{item.name}</p>
                   </button>
                   <div className="folderSystem__folderContainer__fileBtn">
+                  
                     {
-                      state.currentFolder.id === folder.id && (
+                      state.currentFolder.id === item.id && (
                         state.currentFolder.info.map((file, index) => (
                           <div
                             key={`file-${file.title}-${index}`}
@@ -60,6 +54,7 @@ const FolderSystemComponent = ({state,dispatch, title = 'undefined' }) => {
                               file={file}
                               index={index}
                               handleOpenFile={handleOpenFile}
+                              id={id}
                             />
                           </div>
                         ))
@@ -67,7 +62,6 @@ const FolderSystemComponent = ({state,dispatch, title = 'undefined' }) => {
                     }
                   </div>
                 </div>
-                
               ))
             }
             </>
