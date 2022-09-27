@@ -14,7 +14,7 @@ const AboutmePage = () => {
       files={() => 
         <>
           {
-            state.folders.map((item, index) => (
+            state.folders.map((item) => (
               <FolderSystemComponent
                 key={`${item.name}-${item.id}`}
                 id={item.id}

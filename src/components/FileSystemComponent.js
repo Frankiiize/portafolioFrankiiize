@@ -11,11 +11,7 @@ const FileSystemComponent = ({file, index, handleOpenFile, id}) => {
       <div className="icon">
         {
           file.icon 
-          ? (
-              iconList.map((icon) => (
-                icon[file.icon]
-              ))
-            )
+          ? (iconList[0][file.icon])
           : (<FileIcon />)
         }
       </div>

@@ -35,11 +35,7 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
                     </div>
                     {
                       item.icon 
-                      ? (
-                          iconList.map((icon) => (
-                             icon[item.icon]
-                          ))
-                        )
+                      ? (iconList[0][item.icon])
                       : <FolderIcon fill={'#E99287'} />
                     }
                     <p>{item.name}</p>
