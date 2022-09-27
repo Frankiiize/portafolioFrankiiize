@@ -3,12 +3,12 @@ import TringleIcon from "../assets/icons/TringleIcon";
 import Chevron from "../assets/icons/Chevron";
 import { FileSystemComponent } from "./FileSystemComponent";
 import FolderIcon from "../assets/icons/FolderIcon";
+import { iconList } from "../utils/iconList";
 
 
 const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder, handleOpenFile,  title = 'undefined' }) => {
   return(
-    <div className="folderSystem">
-      
+    <div className="folderSystem" >
       <div className="folderSystem__btnContainer">
           <button
           className={!state.showFolders ? 'close': undefined}
@@ -24,10 +24,8 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
       <div className="folderSystem__folderContainer">
         {
           !!state.showFolders && (
-            <>
-            {
-              state.folder.map((item, index) => (
-                <div key={`folder-${item.name}-${index}`}>
+              state.folder.map((item, index) => ( 
+                <div key={`folder-${item.id}-${index}`}>
                   <button 
                   className="folderSystem__folderContainer__folderBtn"
                   onClick={() => handleOpenFolder(item, id)}
@@ -37,18 +35,21 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
                     </div>
                     {
                       item.icon 
-                      ? (item.icon)
+                      ? (
+                          iconList.map((icon) => (
+                             icon[item.icon]
+                          ))
+                        )
                       : <FolderIcon fill={'#E99287'} />
                     }
                     <p>{item.name}</p>
                   </button>
                   <div className="folderSystem__folderContainer__fileBtn">
-                  
                     {
                       state.currentFolder.id === item.id && (
                         state.currentFolder.info.map((file, index) => (
                           <div
-                            key={`file-${file.title}-${index}`}
+                            key={`file-${item.id}-${id}${index}`}
                             >
                             <FileSystemComponent 
                               file={file}
@@ -62,9 +63,8 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
                     }
                   </div>
                 </div>
-              ))
-            }
-            </>
+                )
+              )
           )
         }
       </div>

@@ -8,7 +8,7 @@ import { useFolderState } from "../../hooks/useFolderState";
 
 const AboutmePage = () => {
   const { state, handleOpenFileSystem, handleOpenFolder, handleOpenFile } = useFolderState();
-  
+
   return (
     <IdeLayout 
       files={() => 
@@ -16,7 +16,7 @@ const AboutmePage = () => {
           {
             state.folders.map((item, index) => (
               <FolderSystemComponent
-                key={item.id}
+                key={`${item.name}-${item.id}`}
                 id={item.id}
                 title={item.name}
                 state= {item}

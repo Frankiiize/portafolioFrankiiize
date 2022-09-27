@@ -6,11 +6,7 @@ const IdeLayout = (props) =>{
       <div className="ideLayout__files">
           {
             props.files && (
-              <>
-              {
                  props.files()
-              }
-              </>
             )
           }
       </div>

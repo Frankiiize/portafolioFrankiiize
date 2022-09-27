@@ -1,5 +1,6 @@
 import React from "react";
 import FileIcon from "../assets/icons/FileIcon";
+import { iconList } from "../utils/iconList";
 
 
 const FileSystemComponent = ({file, index, handleOpenFile, id}) => {
@@ -10,7 +11,11 @@ const FileSystemComponent = ({file, index, handleOpenFile, id}) => {
       <div className="icon">
         {
           file.icon 
-          ? (file.icon)
+          ? (
+              iconList.map((icon) => (
+                icon[file.icon]
+              ))
+            )
           : (<FileIcon />)
         }
       </div>
