@@ -12,7 +12,7 @@ const IdeLayout = (props) =>{
       </div>
       <div className="ideLayout__code">
        {
-        !!props.currentFolder && props.currentFolder()
+        !!props.windowOne && props.windowOne()
        }
       </div>
       <div className="ideLayout__code-secondWindow">

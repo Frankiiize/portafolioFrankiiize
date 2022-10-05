@@ -28,7 +28,7 @@ const AboutmePage = () => {
           }
         </>
       }
-      currentFolder= {() => 
+      windowOne= {() => 
           <FileInfo 
             file={state.currentFile}
           />
