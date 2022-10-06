@@ -50,8 +50,8 @@ export const folders = [
     icon: 'folderPurple',
     info : [
       {
-        title: 'Gabito school for programers who shit all',
-        text: 'NO SEAS ESTUPIDO FRAN!'
+        title: 'Gabito school',
+        text: 'Nunca pares de aprender'
       },
      
     ],
