@@ -1,0 +1,95 @@
+.checkContainer{
+  margin-top: 1rem;
+  &__list {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    &__item{
+      display: flex;
+      margin-bottom: 1rem ;
+  
+      &-icon{
+        margin-left: 1rem;
+      }
+      label {
+        color: $color-secondary;
+        font-size: 1.6rem;
+        margin-left: 1rem;
+      }
+      input[type="checkbox"] {
+        width: 1.8rem;
+        height: 1.8rem;
+        color: black;
+        border: 1px solid $color-secondary;
+        appearance: none;
+        outline: 0;
+        cursor: pointer;
+        transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+        &::before {
+          content: '✓';
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+        }
+        &:checked {
+          color: white;
+          border-color: $color-secondary;
+          background:$color-secondary;
+          &::before {
+            animation-name: fadeIn;
+            animation-duration: 300ms;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+          }
+         
+        }
+      }
+    }
+  }
+}
+
+
+
+input[type="checkbox"] {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: black;
+  border: 1px solid $color-secondary;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+  &::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+  &:checked {
+    color: white;
+    border-color: $color-secondary;
+    background:$color-secondary;
+    &::before {
+      animation-name: fadeIn;
+      animation-duration: 300ms;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+    }
+   
+  }
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+
+  }
+  
+}

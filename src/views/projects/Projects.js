@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
+import { FilterProjects } from "../../components/FilterProjects";
 import { IdeLayout } from "../../layouts/IdeLayout";
-import { iconList } from "../../utils/iconList";
 
 const tecsIds = {
   react: 1,
@@ -61,6 +61,16 @@ const projects = [
     path: 'www.google.com'
   },
 ];
+
+const folders = [
+  {
+    name: 'projects',
+    icon: 'tringleIcon',
+    info: projects,
+    id: 1,
+    show: false,
+  }
+]
 
 const initialState = {
   projects: [],
@@ -141,15 +151,16 @@ const reducer = (state, action) => {
 }
 
 const ProjectsPage = () =>{
-  const [ state, dispatch ] = useReducer(reducer, initialState);
+  const [ stateProjects, dispatch ] = useReducer(reducer, initialState);
+
   
   useEffect(() => {
     dispatch({type: 'LOAD', payload: projects })
   },[]);
 
   useEffect(() => {
-    dispatch({type: 'SELECTED-PROJECTS', payload: state.checkSelections})
-  }, [state.checkSelections])
+    dispatch({type: 'SELECTED-PROJECTS', payload: stateProjects.checkSelections})
+  }, [stateProjects.checkSelections])
 
 
   const handleSelectedProjects = (item) => {
@@ -159,25 +170,17 @@ const ProjectsPage = () =>{
   return (
     <IdeLayout
     files={() => (
-      <ul style={{color:'white'}}>
-        {
-        state.filter.map((item,index) => (
-          <li key={`${item.id}-{index}`}>
-            {
-              item.icon && (iconList[0][item.icon]) 
-            }
-            <input type="checkbox" value={item.id} onChange={() => handleSelectedProjects(item)}/>
-            <label>{item.tecName}</label>
-          </li>
-        ))
-        }
-      </ul>
+        <FilterProjects
+          title={'Projects'}
+          stateProjects={stateProjects}
+          onChange={handleSelectedProjects}
+        /> 
       )
     }
     windowOne={() => (
       <>
         {
-          state.activeProjects.map((item,index) => (
+          stateProjects.activeProjects.map((item,index) => (
             <div style={{color: 'white', fontSize: '18px'}} key={`${item.name}-${index}`}>
               <h2>{item.name}</h2>
               {

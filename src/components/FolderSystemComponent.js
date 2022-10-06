@@ -16,7 +16,11 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
           >
             <p>{title}</p>
             <div className="tringleIcon">
-              <TringleIcon width={16} heigth={16} />
+              <div>
+                {
+                  (iconList[0]['tringleIcon'])
+                }
+              </div>
             </div>
           </button>
       </div>

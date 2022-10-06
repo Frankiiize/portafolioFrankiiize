@@ -7,6 +7,7 @@ import CssIcon from "../assets/icons/CssIcon";
 import VanillaJsIcon from "../assets/icons/VanillaJsIcon";
 import TailwindIcon from "../assets/icons/TailwindIcon";
 import ShopifyIcon from "../assets/icons/ShopifyIcon";
+import TringleIcon  from "../assets/icons/TringleIcon"
 export const iconList = [
   {
     folderRed: <FolderIcon fill={'#E99287'} />,
@@ -19,6 +20,7 @@ export const iconList = [
     cssIcon: <CssIcon />,
     vanillaJsIcon: <VanillaJsIcon />,
     tailwindIcon: <TailwindIcon />,
-    shopifyIcon: <ShopifyIcon />
+    shopifyIcon: <ShopifyIcon />,
+    tringleIcon: <TringleIcon />
   },
 ];
