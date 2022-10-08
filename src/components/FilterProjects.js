@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { iconList } from "../utils/iconList";
 
 
-const FilterProjects = ({stateProjects , onChange, title }) => {
-  const [ showProjects, setShowProjects ] = useState(false)
+const FilterProjects = ({stateProjects , onChange, title, onClick }) => {
   return(
     <>
     
     <div className="folderSystem__btnContainer">
           <button
-          className={!showProjects ? 'close': undefined}
-          onClick={() => setShowProjects(!showProjects)} 
+          className={!stateProjects.showProjects ? 'close': undefined}
+          onClick={onClick} 
           >
             <p>{title}</p>
             <div className="tringleIcon">
@@ -25,7 +24,7 @@ const FilterProjects = ({stateProjects , onChange, title }) => {
       </div>
     <div className="folderSystem__titleBottomStroke"></div>
     {
-      showProjects && 
+      stateProjects.showProjects && 
       (
         <div className="checkContainer">
         <ul className="checkContainer__list">
@@ -33,12 +32,16 @@ const FilterProjects = ({stateProjects , onChange, title }) => {
             stateProjects.filter.map((item,index) => (
               <li className="checkContainer__list__item" key={`${item.id}-${index}`}>
                 <input id={`check-${item.id}`} type="checkbox" value={item.id} onChange={() => onChange(item)}/>
-                <div className="checkContainer__list__item-icon">
-                  {
-                    item.icon && (iconList[0][item.icon]) 
-                  }
-                </div>
-                <label htmlFor={`check-${item.id}`}>{item.tecName}</label>
+                <label htmlFor={`check-${item.id}`}>
+                  <div className="icon">
+                    {
+                      item.icon && (iconList[0][item.icon]) 
+                    }
+                  </div>
+                  <span>
+                    {item.tecName}
+                  </span>
+                </label>
               </li>
             ))
             }

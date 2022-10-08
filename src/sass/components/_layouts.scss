@@ -12,16 +12,25 @@
 
 .ideLayout{
   @extend .homeMain;
+  display: flex;
+  flex-direction: column;
+  &__files, &__code{
+    min-height: 300px;
+    overflow-y: scroll;
+    //max-width: 700px;
+  }
+ 
  }
 
 @media (min-width:768px) {
 
   .ideLayout{
     display: grid;
-    grid-template-columns: 290px 1.5fr 1fr ;
+    grid-template-columns: 290px 1fr ;
     &__files, &__code{
       border-right: 1px solid $stroke-color;
-      max-width: 700px;
+     
+      //max-width: 700px;
     }
   }
   

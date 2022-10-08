@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { FilterProjects } from "../../components/FilterProjects";
+import { ProjectCards } from "../../components/ProjectCards";
 import { IdeLayout } from "../../layouts/IdeLayout";
 
 const tecsIds = {
@@ -14,11 +15,12 @@ const tecsIds = {
 const projects = [
   {
     id: 1,
-    name: 'projecto uno',
-    description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
-    tecnologies: [{tecName: 'react', id: tecsIds['react'], icon: 'reactIcon'}, {tecName:'html', id : tecsIds['html'], icon: 'htmlIcon'}, {tecName:'css', id: tecsIds['css'], icon: 'cssIcon'}],
-    image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    name: 'devsafio web',
+    description: 'Proyecto para programa DLAB - Desafio Latam El proyecto consiste en una plataforma online orientada al uso de búsqueda de empleo y reclutamiento del rubro TI. Partiendo del perfil de cada usuario, test técnicos, encuestas, exhibiciones de código y material de apoyo. La web pretende poner en contacto a miles de postulantes y empresas.',
+    tecnologies: [{tecName: 'react', id: tecsIds['react'], icon: 'reactIcon'}, {tecName:'html', id : tecsIds['html'], icon: 'htmlIcon'}, {tecName:'tailwind', id: tecsIds['tailwind'], icon: 'tailwindIcon'}],
+    image: require('../../assets/images/devsafio.png'),
+    repositoryPath: 'https://github.com/Frankiiize/DEVSAFIO',
+    livePath: 'https://devsafio-web.vercel.app/'
   },
   {
     id: 2,
@@ -26,7 +28,8 @@ const projects = [
     description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
     tecnologies: [{tecName: 'react', id: tecsIds['react'], icon: 'reactIcon'}, {tecName:'html', id : tecsIds['html'], icon: 'htmlIcon'}, {tecName:'css', id: tecsIds['css'], icon: 'cssIcon'}],
     image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    repositoryPath: 'www.google.com',
+    livePath: 'www.google.com'
   },
   {
     id: 3,
@@ -34,7 +37,8 @@ const projects = [
     description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
     tecnologies: [{tecName:'shopify', id: tecsIds['shoppify'], icon: 'shopifyIcon'}, {tecName:'tailwind', id: tecsIds['tailwind'],icon: 'tailwindIcon'}],
     image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    repositoryPath: 'www.google.com',
+    livePath: 'www.google.com'
   },
   {
     id: 4,
@@ -42,7 +46,8 @@ const projects = [
     description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
     tecnologies: [{tecName:'vanilla.js', id: tecsIds['vanillaJS'], icon: 'vanillaJsIcon'}, {tecName:'html', id : tecsIds['html'],  icon: 'htmlIcon'}, {tecName:'css', id: tecsIds['css'], icon: 'cssIcon'}],
     image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    repositoryPath: 'www.google.com',
+    livePath: 'www.google.com'
   },
   {
     id: 5,
@@ -50,7 +55,8 @@ const projects = [
     description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
     tecnologies: [{tecName:'vanilla.js', id: tecsIds['vanillaJS'], icon: 'vanillaJsIcon'}],
     image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    repositoryPath: 'www.google.com',
+    livePath: 'www.google.com'
   },
   {
     id: 6,
@@ -58,7 +64,8 @@ const projects = [
     description: 'Este es un ejemplo de un projecto que tenga listo para ser mostrado en mi portafolio',
     tecnologies: [{tecName:'tailwind', id: tecsIds['tailwind'], icon: 'tailwindIcon'}],
     image: require('../../assets/images/fotoproject.jpg'),
-    path: 'www.google.com'
+    repositoryPath: 'www.google.com',
+    livePath: 'www.google.com'
   },
 ];
 
@@ -76,7 +83,8 @@ const initialState = {
   projects: [],
   filter: [],
   checkSelections: [],
-  activeProjects: []
+  activeProjects: [],
+  showProjects: false,
 };
 
 const reducer = (state, action) => {
@@ -140,11 +148,16 @@ const reducer = (state, action) => {
           };
         };
       });
-      
       return {
         ...state,
         activeProjects:  newState
       };
+    case 'SHOW-PROJECTS': 
+      return{
+        ...state,
+        showProjects : action.payload
+      };
+     
     default: 
       return state;
   };
@@ -152,10 +165,21 @@ const reducer = (state, action) => {
 
 const ProjectsPage = () =>{
   const [ stateProjects, dispatch ] = useReducer(reducer, initialState);
-
+  
+  useEffect(() => {
+    const fetchData = () => {
+      fetch('https://portafolio-black-iota.vercel.app/')
+        .then((res) => {
+          console.log(res.status)
+        })
+        .then((data) => console.log(data))
+    }
+    fetchData()
+  },[])
   
   useEffect(() => {
     dispatch({type: 'LOAD', payload: projects })
+   
   },[]);
 
   useEffect(() => {
@@ -166,6 +190,9 @@ const ProjectsPage = () =>{
   const handleSelectedProjects = (item) => {
     dispatch({type: 'SELECT-PROJECT' , payload: item})
   }
+  const handleShowProjects = () => {
+    dispatch({type:'SHOW-PROJECTS', payload: !stateProjects.showProjects })
+  }
  
   return (
     <IdeLayout
@@ -174,26 +201,14 @@ const ProjectsPage = () =>{
           title={'Projects'}
           stateProjects={stateProjects}
           onChange={handleSelectedProjects}
+          onClick={handleShowProjects}
         /> 
       )
     }
     windowOne={() => (
-      <>
-        {
-          stateProjects.activeProjects.map((item,index) => (
-            <div style={{color: 'white', fontSize: '18px'}} key={`${item.name}-${index}`}>
-              <h2>{item.name}</h2>
-              {
-                item.tecnologies.map((tec) => (
-                  <p key={tec.id}>{tec.tecName}</p>
-                ))
-              }
-              <img src={item.image} alt={item.name}/>
-              <p>{item.description}</p>
-            </div>
-          ))
-        }
-      </>
+      <ProjectCards 
+        stateProjects={stateProjects}
+        />
       )
     }
     />

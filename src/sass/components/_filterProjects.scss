@@ -9,6 +9,7 @@
     &__item{
       display: flex;
       margin-bottom: 1rem ;
+      width: 100%;
   
       &-icon{
         margin-left: 1rem;
@@ -17,6 +18,14 @@
         color: $color-secondary;
         font-size: 1.6rem;
         margin-left: 1rem;
+        width: 100%;
+        display: flex;
+        span{
+          margin: 0 1rem;
+        }
+      }
+      label:hover , &-icon:hover, input:hover{
+        cursor: pointer;
       }
       input[type="checkbox"] {
         width: 1.8rem;
@@ -48,6 +57,7 @@
         }
       }
     }
+ 
   }
 }
 

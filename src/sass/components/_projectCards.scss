@@ -1,0 +1,66 @@
+.projectCardsContainer{ 
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  &__card {
+    min-height: 300px;
+    margin: 10px auto;
+    &__title {
+      color: $color-text-purple;
+      text-transform: capitalize;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+    &__info{
+      border: 2px solid $stroke-color;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      &__image{
+        img{
+          width: 100%;
+        }
+      }
+      &__description {
+        width: 90%;
+        margin: 3rem auto;
+        color: $color-secondary;
+        p{
+          font-size: 1.6rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;  
+          overflow: hidden;
+        }
+        p:hover{
+          display: block;
+        }
+        &__buttoms{
+          display: flex;
+          justify-content: space-between;
+          &__buttom{
+            width: 130px;
+            height: 38px;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $bg-buttom-primary;
+            a, a:visited, a:focus, a:active {
+              font-size: 1.4rem;
+              color: $color-secondary-white;
+              text-transform: capitalize;
+            }
+          }
+          &__buttom:hover{
+            filter: brightness(1.5);
+            cursor: pointer;
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -15,9 +15,9 @@ const IdeLayout = (props) =>{
         !!props.windowOne && props.windowOne()
        }
       </div>
-      <div className="ideLayout__code-secondWindow">
+  {/*     <div className="ideLayout__code-secondWindow">
         <p>code2</p>
-      </div>
+      </div> */}
     </section>
   );
 };
