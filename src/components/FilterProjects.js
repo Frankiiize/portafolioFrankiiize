@@ -1,9 +1,9 @@
 import React from "react";
+import ExpressIcon from "../assets/icons/ExpressIcon";
 
-import { iconList } from "../utils/iconList";
+import { iconList, tecIconList } from "../utils/iconList";
 
-
-const FilterProjects = ({stateProjects , onChange, title, onClick }) => {
+const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onClick }) => {
   return(
     <>
     
@@ -34,9 +34,7 @@ const FilterProjects = ({stateProjects , onChange, title, onClick }) => {
                 <input id={`check-${item.id}`} type="checkbox" value={item.id} onChange={() => onChange(item)}/>
                 <label htmlFor={`check-${item.id}`}>
                   <div className="icon">
-                    {
-                      item.icon && (iconList[0][item.icon]) 
-                    }
+                   {iconList[0][item.icon]}
                   </div>
                   <span>
                     {item.tecName}
@@ -45,11 +43,14 @@ const FilterProjects = ({stateProjects , onChange, title, onClick }) => {
               </li>
             ))
             }
+          <li className="checkContainer__list__item">
+            <input id="check-all" type="checkbox" onChange={() => handleAllProjects(stateProjects.filter)}/>
+            <label htmlFor="check-all">All</label>
+          </li>
         </ul>
       </div>
       )
     }
- 
     </>
   );
 };

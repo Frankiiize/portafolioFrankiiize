@@ -5,9 +5,10 @@ import ReactIcon  from "../assets/icons/ReactIcon";
 import HtmlIcon from "../assets/icons/HtmlIcon";
 import CssIcon from "../assets/icons/CssIcon";
 import VanillaJsIcon from "../assets/icons/VanillaJsIcon";
-import TailwindIcon from "../assets/icons/TailwindIcon";
 import ShopifyIcon from "../assets/icons/ShopifyIcon";
 import TringleIcon  from "../assets/icons/TringleIcon"
+import ExpressIcon from "../assets/icons/ExpressIcon";
+import TailwindIcon from "../assets/icons/TailwindIcon";
 export const iconList = [
   {
     folderRed: <FolderIcon fill={'#E99287'} />,
@@ -15,12 +16,46 @@ export const iconList = [
     folderPurple: <FolderIcon fill={'#3A49A4'} />,
     emailIcon: <EmailIcon />,
     phoneIcon: <PhoneIcon />,
+    tringleIcon: <TringleIcon />,
+
     reactIcon: <ReactIcon />,
     htmlIcon: <HtmlIcon />,
     cssIcon: <CssIcon />,
     vanillaJsIcon: <VanillaJsIcon />,
-    tailwindIcon: <TailwindIcon />,
     shopifyIcon: <ShopifyIcon />,
-    tringleIcon: <TringleIcon />
+    expressIcon: <ExpressIcon />,
+    tailwindIcon: <TailwindIcon />
   },
+ 
 ];
+
+export const tecIconList = [
+  {
+    id: 1,
+    icon: <ReactIcon />,
+  },
+  {
+    id: 2,
+    icon: <HtmlIcon />,
+  },
+  {
+    id: 3,
+    icon: <CssIcon />,
+  },
+  {
+    id: 4,
+    icon: <ShopifyIcon />,
+  },
+  {
+    id: 5,
+    icon: <VanillaJsIcon />,
+  },
+  {
+    id: 6,
+    icon: <TailwindIcon />,
+  },
+  {
+    id: 7,
+    icon: <ExpressIcon />,
+  },
+]

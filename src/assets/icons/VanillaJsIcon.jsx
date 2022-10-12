@@ -1,7 +1,7 @@
 import * as React from "react"
 
 const VanillaJsIcon = (props) => (
-<svg
+  <svg
     width={24}
     height={24}
     fill="none"
