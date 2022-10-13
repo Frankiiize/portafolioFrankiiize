@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const navigation = [
-  { name: 'Francisco Jimenez', href: '/register', current: false },
+  { name: 'Francisco Jimenez', href: '/', current: false },
   { name: '_hello', href: '/', current: false },
   { name: '_about-me', href: '/aboutme', current: false },
   { name: '_projects', href: '/projects', current: false },
-  { name: '_contact-me', href: '/#', current: false },
+  { name: '_contact-me', href: '/contactMe', current: false },
 ]
 
 

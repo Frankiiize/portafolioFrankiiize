@@ -7,6 +7,7 @@ const Protected = React.lazy(() => import('../routers/ProtectedRoute')); */
 const HomePage = React.lazy(() => import('../views/home/Home'));
 const AboutmePage = React.lazy(() => import('../views/aboutme/Aboutme'));
 const ProjectsPage = React.lazy(() => import('../views/projects/Projects'));
+const ContactPage = React.lazy(() => import('../views/contact/Contact'));
 
 
 // const localStorageValidation = (localStorage.length > 0) ? JSON.parse(localStorage.getItem("user")).user.role : null;
@@ -25,6 +26,7 @@ let routes = [
   {path:"/", element: <HomePage />},
   {path:"/aboutme", element: <AboutmePage />},
   {path:"/projects", element: <ProjectsPage />},
+  {path:"/contactMe", element: <ContactPage />},
   /* {path:"/login", element: <Login />}, */
 /*   {
     path:"/", 

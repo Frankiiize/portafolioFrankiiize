@@ -175,8 +175,9 @@ const reducer = (state, action) => {
         return obj.id === action.payload.id;
       });
       if(!isTecActive){
+        const payload = {...action.payload, active: true}
         const checkState = [...state.checkSelections];
-        const newState = [...checkState, action.payload];
+        const newState = [...checkState, payload];
         currentChecks = newState;
       }else {
         const findObj = state.checkSelections.filter((obj) => {
