@@ -80,7 +80,7 @@ const projects = [
   },
   {
     id: 9,
-    name: 'petgram',
+    name: 'Space React',
     description: 'this is a solution to Space tourism multi-page website on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.',
     tecnologies: getTecnologyPropertys('react', 'html', 'css'),
     image: 'https://i.ibb.co/Qr41GpV/screencapture-space-react-herokuapp-2022-10-11-18-39-18.png',
