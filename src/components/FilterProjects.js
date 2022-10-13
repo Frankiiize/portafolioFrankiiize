@@ -3,7 +3,7 @@ import ExpressIcon from "../assets/icons/ExpressIcon";
 
 import { iconList, tecIconList } from "../utils/iconList";
 
-const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onClick }) => {
+const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onClick, isActiveCheck }) => {
   return(
     <>
     
@@ -33,10 +33,10 @@ const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onC
               <li className="checkContainer__list__item" key={`${item.id}-${index}`}>
                 <input id={`check-${item.id}`} type="checkbox" value={item.id} onChange={() => onChange(item)}/>
                 <label htmlFor={`check-${item.id}`}>
-                  <div className="icon">
+                  <div className="checkContainer__list__item__icon">
                    {iconList[0][item.icon]}
                   </div>
-                  <span>
+                  <span className={stateProjects.checkSelections.some((selected) => selected.id === item.id ) ? 'active': undefined}>
                     {item.tecName}
                   </span>
                 </label>

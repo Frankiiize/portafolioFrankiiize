@@ -10,9 +10,10 @@
       display: flex;
       margin-bottom: 1rem ;
       width: 100%;
-  
-      &-icon{
-        margin-left: 1rem;
+      &__icon{
+        width: 32px;
+        display: flex;
+        justify-content: center;
       }
       label {
         color: $color-secondary;
@@ -21,7 +22,11 @@
         width: 100%;
         display: flex;
         span{
-          margin: 0 1rem;
+          margin-left: 0.5rem;
+          text-transform: capitalize;
+        }
+        span.active {
+          color: $color-secondary-white;
         }
       }
       label:hover , &-icon:hover, input:hover{
@@ -62,44 +67,3 @@
 }
 
 
-
-input[type="checkbox"] {
-  width: 1.8rem;
-  height: 1.8rem;
-  color: black;
-  border: 1px solid $color-secondary;
-  appearance: none;
-  outline: 0;
-  cursor: pointer;
-  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
-  &::before {
-    content: '✓';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-  }
-  &:checked {
-    color: white;
-    border-color: $color-secondary;
-    background:$color-secondary;
-    &::before {
-      animation-name: fadeIn;
-      animation-duration: 300ms;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards;
-    }
-   
-  }
-}
-
-@keyframes fadeIn {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-
-  }
-  
-}
