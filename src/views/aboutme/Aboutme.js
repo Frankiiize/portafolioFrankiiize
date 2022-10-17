@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { IdeLayout } from "../../layouts/IdeLayout";
 import { FolderSystemComponent } from "../../components/FolderSystemComponent";
 import { FileInfo } from "../../components/FileInfo";
 import { useFolderState } from "../../hooks/useFolderState";
+import { folders, contactData } from "../../services/data";
 
 
 const AboutmePage = () => {
-  const { state, handleOpenFileSystem, handleOpenFolder, handleOpenFile } = useFolderState();
-
+  const { state, handleOpenFileSystem, handleOpenFolder, handleOpenFile, dispatch } = useFolderState();
+  useEffect(() => {
+    dispatch({type:'LOAD-FOLDERS', payload: [{folders, name:'personal-info', id: 1}, {folders: contactData, name:'contact-data', id: 2}] })
+  },[])
+  console.log(state.currentFile)
   return (
     <IdeLayout 
       files={() => 

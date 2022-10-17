@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const FileInfo = ({file}) => {
 
-  const lines = file.text;
+  const lines = file?.text;
 
   return (
     <>

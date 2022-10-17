@@ -1,14 +1,13 @@
 import React, { useReducer, useState } from "react";
 import { makeTextLines } from "../utils/makeCodeLines";
-import { folders, contactData } from "../services/data";
 
 const initialState = {
   folders : [],
 }
 const fileReducer = (state, action) => {
-  const indexFolder = state.folders.findIndex((item) => item.id === action.payload.id);
   switch (action.type){
     case 'SHOW-FILE-SYSTEM':
+      const indexFolder = state.folders.findIndex((item) => item.id === action.payload.id);
       const folder = {...state.folders[indexFolder], showFolders: action.payload.showFolders} ;
       const newFolderState = state.folders.map((item) => {
         if(item.id === action.payload.id){
@@ -64,9 +63,7 @@ const fileReducer = (state, action) => {
 
 const useFolderState = () => {
   const [ state, dispatch ] = useReducer(fileReducer, initialState);
-  useState(() => {
-    dispatch({type:'LOAD-FOLDERS', payload: [{folders, name:'personal-info', id: 1}, {folders: contactData, name:'contact-data', id: 2}] })
-  },[])
+  
   const handleOpenFileSystem = (folder) => {
     dispatch({type: 'SHOW-FILE-SYSTEM', payload: folder})
   }
