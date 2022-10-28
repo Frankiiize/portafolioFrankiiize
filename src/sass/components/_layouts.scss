@@ -14,23 +14,37 @@
   @extend .homeMain;
   display: flex;
   flex-direction: column;
-  &__files, &__code{
+  &__files, &__code ,&__code-secondWindow{
     min-height: 300px;
     overflow-y: scroll;
     //max-width: 700px;
   }
  
- }
+}
+
+.ideLayout-secondWindow {
+  @extend .homeMain;
+  display: flex;
+  flex-direction: column;
+    &__files, &__code ,&__code-secondWindow{
+      min-height: 300px;
+      //max-width: 700px;
+    }
+}
 
 @media (min-width:768px) {
-
   .ideLayout{
     display: grid;
     grid-template-columns: 290px 1fr ;
     &__files, &__code{
       border-right: 1px solid $stroke-color;
-     
-      //max-width: 700px;
+    }
+  }
+  .ideLayout-secondWindow {
+    display: grid;
+    grid-template-columns: 290px 1fr 1fr;
+    &__files, &__code ,&__code-secondWindow{
+      border-right: 1px solid $stroke-color;
     }
   }
   

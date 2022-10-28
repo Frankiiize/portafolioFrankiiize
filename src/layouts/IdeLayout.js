@@ -1,8 +1,10 @@
 import React from "react";
 
 const IdeLayout = (props) =>{
+  
+
   return(
-    <section className="ideLayout">
+    <section className={props.secondWindow ? 'ideLayout-secondWindow' : 'ideLayout'}>
       <div className="ideLayout__files">
           {
             props.files && (
@@ -10,14 +12,19 @@ const IdeLayout = (props) =>{
             )
           }
       </div>
-      <div className="ideLayout__code">
+      <div className={props.secondWindow ? 'ideLayout-secondWindow__code' : 'ideLayout__code'}>
        {
         !!props.windowOne && props.windowOne()
        }
       </div>
-  {/*     <div className="ideLayout__code-secondWindow">
-        <p>code2</p>
-      </div> */}
+      {
+        props.secondWindow &&
+        <div className={props.secondWindow ? 'ideLayout-secondWindow__code-secondWindow' : 'ideLayout__code-secondWindow'}>
+            {
+              props.secondWindow()
+            }
+        </div>
+      }
     </section>
   );
 };
