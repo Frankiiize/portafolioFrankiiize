@@ -5,7 +5,7 @@ const IdeLayout = (props) =>{
 
   return(
     <section className={props.secondWindow ? 'ideLayout-secondWindow' : 'ideLayout'}>
-      <div className="ideLayout__files">
+      <div className={props.secondWindow ? 'ideLayout-secondWindow__files' : 'ideLayout__files'}>
           {
             props.files && (
                  props.files()
