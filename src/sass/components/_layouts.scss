@@ -27,9 +27,12 @@
   @extend .homeMain;
   display: flex;
   flex-direction: column;
-  &__files, &__code ,&__code-secondWindow{
+  &__files, &__code,&__code-secondWindow {
       flex-shrink: 1;
     }
+  &__code-secondWindow{
+    display: none;
+  }
 }
 
 @media (min-width:768px) {
@@ -46,6 +49,10 @@
   .ideLayout-secondWindow {
     display: grid;
     grid-template-columns: 290px 1fr 1fr;
+    &__code-secondWindow{
+      display: flex;
+      flex-direction: column;
+    }
     &__files, &__code ,&__code-secondWindow{
       height: 100%;
       max-height: none;

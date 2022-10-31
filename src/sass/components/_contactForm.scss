@@ -1,0 +1,52 @@
+.contactForm{
+  width: 100%;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 90%;
+  justify-content: center;
+  padding-top: 4rem;
+  margin: 0 auto;
+  label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    span{ 
+      font-size: 1.6rem;
+      color: $color-secondary;
+      padding-bottom: 1rem;
+    }
+    textarea {
+      min-height: 145px;
+      resize: none;
+    }
+    input {
+      height: 41px;
+    }
+    input, textarea{
+      border: 1px solid $stroke-color;
+      border-radius: 8px;
+      background-color: $color-primary-ligth;
+      color: #465E77;
+    }
+    input:focus, textarea:focus, input:focus-visible, textarea:focus-visible{
+      outline: 1px solid $color-secondary;
+    }
+    input::placeholder, textarea::placeholder{
+      color: #465E77
+      ;
+    }
+  }
+  &__btn {
+    width: 100%;
+    button {
+      background-color: $bg-buttom-primary;
+      border: none;
+      border-radius: 8px;
+      width: 146px;
+      height: 38px;
+      color: $color-secondary-white;
+      font-size: 1.4rem;
+
+    }
+  }
+}

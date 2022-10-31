@@ -1,5 +1,5 @@
-const TextToCode = ({string}) => {
-  const stringArr = string.split(' ')
+const TextToCode = (props) => {
+  const stringArr = props.string.split(' ')
   let obj = {}
   stringArr.map((item,index) =>{
     if(item === 'const' || item === 'let' || item === 'var'){
@@ -24,7 +24,9 @@ const TextToCode = ({string}) => {
         <p className="text-color-accent-green">{obj?.nameFunc}</p>
         <p className="text-color-secondary-white">{obj?.operator}</p>
         <p className="text-color-accent-red">{obj?.string}</p>
+        {props.render && <p className="text-color-accent">{props.render()}</p>}
       </div>
+       
       ) 
       
     }
