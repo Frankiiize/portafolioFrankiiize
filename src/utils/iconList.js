@@ -58,4 +58,12 @@ export const tecIconList = [
     id: 7,
     icon: <ExpressIcon />,
   },
+  {
+    id: 8,
+    icon: <p>F</p>,
+  },
+  {
+    id: 9,
+    icon: <p>J</p>,
+  },
 ]
