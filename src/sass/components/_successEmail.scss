@@ -1,0 +1,20 @@
+.success {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  h1 {
+    color: $color-secondary-white;
+    font-size: 2.6rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+  p{
+    color: $color-secondary;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+}

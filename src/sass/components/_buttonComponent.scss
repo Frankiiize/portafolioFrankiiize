@@ -1,0 +1,17 @@
+button.primary {
+  width: 100%;
+  max-width: 160px;
+  height: 43px;
+  background-color: $bg-buttom-primary;
+  border: none;
+  border-radius: 8px;
+  color: $color-secondary-white;
+  font-size: 1.4rem;
+}
+button.primary:hover{
+  cursor: pointer;
+  background-color: $color-secondary-lgWhite;
+  color: $color-secondary;
+  font-weight: bold;
+  transition: 500ms;
+}

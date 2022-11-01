@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ButtonComponent } from "./ButtonComponent";
 const ContacForm = ({state, handleSetName, handleSetEmail, handleSetMessage, onSubmitSForm}) => {
   return(
     <form className="contactForm">
@@ -26,11 +26,13 @@ const ContacForm = ({state, handleSetName, handleSetEmail, handleSetMessage, onS
         </textarea>
       </label>
       <div className="contactForm__btn">
-        <button 
-          onClick={onSubmitSForm}
-          >
-            submit-message
-          </button>
+        
+          <ButtonComponent 
+            onClick={(ev) => onSubmitSForm(ev)}
+            text={'submit-message'}
+            type={'button'}
+            classes={'primary'}
+          />
       </div>
     </form>
   );
