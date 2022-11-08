@@ -75,7 +75,6 @@ const useContactForm = () => {
     ev.preventDefault();
     formDispatch({type: 'FORM-LOADING', payload: true})
     contacSendEmail(formState).then((res) => {
-      console.log(res)
       if(res.status === 201){
         formDispatch({type: 'MESSAGE-SEND', payload: {loading: false, isSend: true}})
       }else {
@@ -83,7 +82,6 @@ const useContactForm = () => {
       }
     }).catch((error) => {
       formDispatch({type: 'ERROR', payload: {loading: false , error: true}})
-      console.log(error)
     })
   }
   return {

@@ -31,7 +31,7 @@ const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onC
             {
             stateProjects.filter.map((item,index) => (
               <li className="checkContainer__list__item" key={`${item.id}-${index}`}>
-                <input id={`check-${item.id}`} type="checkbox" value={item.id} onChange={() => onChange(item)}/>
+                <input checked={stateProjects.checkSelections.some((activeCheck) => activeCheck.id === item.id )} id={`check-${item.id}`} type="checkbox" value={item.id} onChange={() => onChange(item)}/>
                 <label htmlFor={`check-${item.id}`}>
                   <div className="checkContainer__list__item__icon">
                    {iconList[0][item.icon]}
@@ -44,7 +44,7 @@ const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onC
             ))
             }
           <li className="checkContainer__list__item">
-            <input id="check-all" type="checkbox" onChange={() => handleAllProjects(stateProjects.filter)}/>
+            <input checked={stateProjects.activeProjects.length === stateProjects.projects.length ? true : false} id="check-all" type="checkbox" onChange={() => handleAllProjects(stateProjects.filter)}/>
             <label htmlFor="check-all">All</label>
           </li>
         </ul>

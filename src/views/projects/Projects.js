@@ -13,7 +13,7 @@ const initialState = {
   filter: [],
   checkSelections: [],
   activeProjects: [],
-  showProjects: false,
+  showProjects: true,
   loading: true,
 };
 
@@ -26,15 +26,9 @@ const reducer = (state, action) => {
         for (let i = 0; i < arr.length; i++) {
           const projectTecnologies = arr[i].tecnologies;
           projectTecnologies.map((tec) => {
-            /* let findIcon = tecIconList.find((icon) =>{
-              console.log(icon.id , tec)
-              return  icon.id === tec.id
-            }); */
             if(allTecnologies.length <= 0){
-              //tec.icon = findIcon.icon;
               allTecnologies.push(tec);
             }else {
-             // tec.icon = findIcon.icon;
               const currentTecIDs = allTecnologies.map((item) => item.id);
               const isExist = currentTecIDs.includes(tec.id);
               if(!isExist) {
@@ -92,8 +86,9 @@ const reducer = (state, action) => {
         for (let i = 0; i < projectTecnologies.length; i++) {
           const projectTec = projectTecnologies[i];
           if(activeTecnologiesID.includes(projectTec.id)){
-            return item;
-          };
+            return item 
+          }
+         
         };
       });
       return {
@@ -117,7 +112,6 @@ const ProjectsPage = () =>{
    async function getData ()  {
       getAllProjects()
         .then((data) => {
-          console.log(data.data)
           dispatch({type: 'LOAD', payload: data.data })
         }).catch((error) =>{
           debugger
@@ -133,7 +127,6 @@ const ProjectsPage = () =>{
   }, [stateProjects.checkSelections])
 
   const handleSelectedProjects = (item) => {
-    console.log(item)
     dispatch({type: 'SELECT-PROJECT' , payload: item})
   }
   const handleShowProjects = () => {
@@ -143,7 +136,6 @@ const ProjectsPage = () =>{
   const handleAllProjects = (allCheckedSelections) => {
     dispatch({type: 'SELECT-ALL-PROJECTS', payload: allCheckedSelections})
   }
- console.log(stateProjects)
   return (
     <IdeLayout
     files={() => (

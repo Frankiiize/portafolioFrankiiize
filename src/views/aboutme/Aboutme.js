@@ -12,7 +12,6 @@ const AboutmePage = () => {
   useEffect(() => {
     dispatch({type:'LOAD-FOLDERS', payload: [{folders, name:'personal-info', id: 1}, {folders: contactData, name:'contact-data', id: 2}] })
   },[])
-  console.log(state.currentFile)
   return (
     <IdeLayout 
       files={() => 
