@@ -43,7 +43,7 @@ const FilterProjects = ({stateProjects , onChange, handleAllProjects, title, onC
               </li>
             ))
             }
-          <li className="checkContainer__list__item">
+          <li style={{display : 'none'}} className="checkContainer__list__item">
             <input checked={stateProjects.activeProjects.length === stateProjects.projects.length ? true : false} id="check-all" type="checkbox" onChange={() => handleAllProjects(stateProjects.filter)}/>
             <label htmlFor="check-all">All</label>
           </li>

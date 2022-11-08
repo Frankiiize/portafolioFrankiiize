@@ -153,7 +153,7 @@ const ProjectsPage = () =>{
     <>
     {
       stateProjects.loading 
-      ? <p>LOADING</p>
+      ? <p style={{ color: 'white'}}>LOADING</p>
       : <ProjectCards 
           stateProjects={stateProjects}
         />
