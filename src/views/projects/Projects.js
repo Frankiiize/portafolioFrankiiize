@@ -1,6 +1,8 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { FilterProjects } from "../../components/FilterProjects";
+import { LoaderComponent } from "../../components/LoaderComponent";
 import { ProjectCards } from "../../components/ProjectCards";
+import { AllScreenLayoutCenter } from "../../layouts/AllScreenLayoutCenter";
 import { IdeLayout } from "../../layouts/IdeLayout";
 import { getAllProjects } from "../../services/projects/index"
 import { tecIconList } from "../../utils/iconList";
@@ -153,7 +155,9 @@ const ProjectsPage = () =>{
     <>
     {
       stateProjects.loading 
-      ? <p style={{ color: 'white'}}>LOADING</p>
+      ? <AllScreenLayoutCenter>
+          <LoaderComponent/>
+        </AllScreenLayoutCenter>
       : <ProjectCards 
           stateProjects={stateProjects}
         />
