@@ -1,14 +1,20 @@
 import FolderIcon from "../assets/icons/FolderIcon";
 import EmailIcon from "../assets/icons/EmailIcon";
 import PhoneIcon from "../assets/icons/PhoneIcon";
-import ReactIcon  from "../assets/icons/ReactIcon";
-import HtmlIcon from "../assets/icons/HtmlIcon";
-import CssIcon from "../assets/icons/CssIcon";
-import VanillaJsIcon from "../assets/icons/VanillaJsIcon";
-import ShopifyIcon from "../assets/icons/ShopifyIcon";
 import TringleIcon  from "../assets/icons/TringleIcon"
-import ExpressIcon from "../assets/icons/ExpressIcon";
-import TailwindIcon from "../assets/icons/TailwindIcon";
+
+import pngReact from "../assets/icons/png/react.png";
+import pngHtml5 from "../assets/icons/png/html5.png";
+import pngCss from "../assets/icons/png/css.png";
+import pngJavaScript from "../assets/icons/png/javascript.png";
+import pngTailwind from "../assets/icons/png/tailwind.png";
+import pngExpress from "../assets/icons/png/express.png";
+import pngFirebase from "../assets/icons/png/firebase.png";
+import pngJquery from "../assets/icons/png/jquery.png";
+import { IconComponent } from "../components/IconComponent";
+
+
+
 export const iconList = [
   {
     folderRed: <FolderIcon fill={'#E99287'} />,
@@ -18,52 +24,20 @@ export const iconList = [
     phoneIcon: <PhoneIcon />,
     tringleIcon: <TringleIcon />,
 
-    reactIcon: <ReactIcon />,
-    htmlIcon: <HtmlIcon />,
-    cssIcon: <CssIcon />,
-    vanillaJsIcon: <VanillaJsIcon />,
-    shopifyIcon: <ShopifyIcon />,
-    expressIcon: <ExpressIcon />,
-    tailwindIcon: <TailwindIcon />
+   
   },
  
 ];
 
-export const tecIconList = [
+export const newIconList = [
   {
-    id: 1,
-    icon: <ReactIcon />,
-  },
-  {
-    id: 2,
-    icon: <HtmlIcon />,
-  },
-  {
-    id: 3,
-    icon: <CssIcon />,
-  },
-  {
-    id: 4,
-    icon: <ShopifyIcon />,
-  },
-  {
-    id: 5,
-    icon: <VanillaJsIcon />,
-  },
-  {
-    id: 6,
-    icon: <TailwindIcon />,
-  },
-  {
-    id: 7,
-    icon: <ExpressIcon />,
-  },
-  {
-    id: 8,
-    icon: <p>F</p>,
-  },
-  {
-    id: 9,
-    icon: <p>J</p>,
-  },
+    reactIcon: <IconComponent src={pngReact} alt={"icon-React.js"}/>,
+    htmlIcon: <IconComponent src={pngHtml5} alt="html5 icon-check"/>,
+    cssIcon: <IconComponent src={pngCss} alt="css icon-check"/>,
+    vanillaJsIcon: <IconComponent src={pngJavaScript} alt="javascript icon-check"/>,
+    tailwindIcon: <IconComponent src={pngTailwind} alt="tailwind icon-check"/>,
+    expressIcon: <IconComponent src={pngExpress} alt="express icon-check"/>,
+    firebase: <IconComponent src={pngFirebase} alt="express icon-check"/>,
+    jquery: <IconComponent src={pngJquery} alt="express icon-check"/>,
+  }
 ]
