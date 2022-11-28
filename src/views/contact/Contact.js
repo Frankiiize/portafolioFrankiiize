@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { IdeLayout } from "../../layouts/IdeLayout";
 import { FolderSystemComponent } from "../../components/FolderSystemComponent";
 import { useFolderState } from "../../hooks/useFolderState";
-import { contactData } from "../../services/data";
+import { contactData, findMeAlsoIn } from "../../services/data";
 import { ContacForm } from "../../components/ContactForm";
 import { TextToCode } from "../../components/TextToCode";
 import { useContactForm } from "../../hooks/useContactForm";
@@ -11,22 +11,7 @@ import { ButtonComponent } from "../../components/ButtonComponent";
 import { AllScreenLayoutCenter } from "../../layouts/AllScreenLayoutCenter";
 import { LoaderComponent } from "../../components/LoaderComponent";
 
-const findMeAlsoIn = [
-  {
-    name: "find-me-also-in",
-    icon: undefined,
-    info: [
-      {
-        title: "Instagram",
-        extension: "com",
-        icon: "emailIcon",
-        //text: ' Email me at frankiize@gmail.com'
-      },
-    ],
-    id: 4,
-    show: false,
-  },
-];
+
 
 const ContactPage = () => {
   const {
@@ -103,7 +88,7 @@ const ContactPage = () => {
               state={item}
               handleOpenFileSystem={handleOpenFileSystem}
               handleOpenFolder={handleOpenFolder}
-              handleOpenFile={null}
+              handleOpenFile={() => console.log('click')}
             />
           ))}
         </>

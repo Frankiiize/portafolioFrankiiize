@@ -90,13 +90,16 @@
         margin: 0 10px;
         font-size: 1.6rem;
       }
-     
+      p:hover {
+        color: $color-secondary-lgWhite;
+        cursor: pointer;
+      }
     }
     &__fileBtn{
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      button{
+      button, .link{
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -124,6 +127,12 @@
           }
         }
         
+        .file-name:hover {
+           span {
+             color: $color-secondary-white;
+             cursor: pointer;
+           }
+         }
       }
     }
 

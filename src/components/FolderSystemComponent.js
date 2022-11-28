@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import TringleIcon from "../assets/icons/TringleIcon";
 import Chevron from "../assets/icons/Chevron";
-import { FileSystemComponent } from "./FileSystemComponent";
+import { FileButton, FileSystemComponent } from "./FileButtom";
 import FolderIcon from "../assets/icons/FolderIcon";
 import { iconList } from "../utils/iconList";
 
@@ -51,12 +51,16 @@ const FolderSystemComponent = ({state,id,handleOpenFileSystem, handleOpenFolder,
                           <div
                             key={`file-${item.id}-${id}${index}`}
                             >
-                            <FileSystemComponent 
-                              file={file}
-                              index={index}
-                              handleOpenFile={handleOpenFile}
-                              id={id}
-                            />
+                              {
+                                  <FileButton 
+                                     file={file}
+                                     index={index}
+                                     handleOpenFile={handleOpenFile}
+                                     id={id}
+                                     component={item.infoComponent}
+                                   />
+                              }
+                            
                           </div>
                         ))
                       )
